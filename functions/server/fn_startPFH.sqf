@@ -22,7 +22,7 @@ private _previousCapturingSide = _trigger getVariable QGVAR(currentOwner);
     _pps = _trigger getVariable "grad_flagsector_pointsPerSecond";
     if (_pps > 0 && {_oldOwner != sideUnknown}) then {
         _categoryName = format ["Held %1",_trigger getVariable "grad_flagsector_sectorName"];
-        [_oldOwner,_pps,_categoryName] call grad_points_fnc_addPoints;
+        [_oldOwner,_pps,_categoryName] call grad_victorypoints_fnc_addPoints;
     };
 
     // sector blocked by fn_blockSector
@@ -52,8 +52,8 @@ private _previousCapturingSide = _trigger getVariable QGVAR(currentOwner);
         deleteMarker (_trigger getVariable [QGVAR(captureMarker),""]);
 
         _points = _trigger getVariable "grad_flagsector_pointsForCapture";
-        [_newOwner,_points,_sectorName] call grad_points_fnc_addPoints;
-        [_oldOwner,-_points,_sectorName] call grad_points_fnc_addPoints;
+        [_newOwner,_points,_sectorName] call grad_victorypoints_fnc_addPoints;
+        [_oldOwner,-_points,_sectorName] call grad_victorypoints_fnc_addPoints;
 
         _onSectorCaptured = _trigger getVariable [QGVAR(onSectorCaptured),{}];
         [_trigger,_newOwner,_oldOwner] call _onSectorCaptured;
