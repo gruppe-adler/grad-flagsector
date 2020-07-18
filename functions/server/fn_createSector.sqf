@@ -10,9 +10,13 @@ if (isNil "grad_flagsector_sectorTriggers") then {grad_flagsector_sectorTriggers
 
 {
     [_x,_sectorName,_pointsForCapture,_pointsPerSecond,_lockAfterCapture,_captureSides,_owner,_notifyTakingControl,_onSectorCaptured,_sectorData,_captureMode] call grad_flagsector_fnc_initTrigger;
-	  [_x] call grad_flagsector_fnc_createMarker;
+    private _isFlagSector = _captureMode == 2;
+
+    [_x, _isFlagSector] call grad_flagsector_fnc_createMarker;
     [_x] call grad_flagsector_fnc_createTasks;
-    [_x, _owner] call grad_flagsector_fnc_flagCreate;
+    if (_isFlagSector) then {
+      [_x, _owner] call grad_flagsector_fnc_flagCreate;
+    };
     [{!isNull (_this select 0)}, {[_this select 0] call grad_flagsector_fnc_startPFH}, [_x]] call CBA_fnc_waitUntilAndExecute;
 
     grad_flagsector_sectorTriggers pushBack _x;

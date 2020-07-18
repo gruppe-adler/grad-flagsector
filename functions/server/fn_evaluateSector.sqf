@@ -101,4 +101,12 @@ if (_captureMode == 1) then {
     };
 };
 
+// flag capture mode
+if (_captureMode == 2) then {
+    private _flag = _trigger getVariable QGVAR(sectorflag);
+    private _currentOwner = _flag getVariable [QGVAR(sectorOwner), sideUnknown];
+
+    return = [_currentOwner,_currentOwner];
+};
+
 _return

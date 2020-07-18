@@ -1,6 +1,14 @@
 #include "..\..\component.hpp"
 
-params ["_trigger"];
+params ["_trigger", "_isFlagSector"];
+
+if (_isFlagSector) exitWith {
+  _marker = createMarker [format ["sectorMarker_%1",getPos _trigger],getPos _trigger];
+  _marker setMarkerShape "Icon";
+  _marker setMarkerType "hd_flag";
+
+  _trigger setVariable ["grad_flagsector_sectorMarker",_marker];
+};
 
 (triggerArea _trigger) params ["_a","_b","_angle","_isRectangle"];
 

@@ -9,7 +9,7 @@ class grad_flagsector {
         class evaluateSector {};
 
         class flagCreate;
-        class flagLoop;
+        class flagListener;
         class flagSetOwner;
 
         class initTrigger {};

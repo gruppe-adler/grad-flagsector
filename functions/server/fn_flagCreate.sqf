@@ -1,3 +1,5 @@
+#include "..\..\component.hpp"
+
 params ["_sector", "_side"];
 
 private _classname = switch (_side) do {
@@ -24,4 +26,6 @@ _flag setPos (getPos _sector);
 _flag setFlagOwner _side;
 _flag setFlagSide _side;
 
-[_flag, _side] call grad_flagsector_fnc_flagLoop:
+_sector setVariable [QGVAR(sectorflag), _flag];
+
+[_flag] call grad_flagsector_fnc_flagListener;
