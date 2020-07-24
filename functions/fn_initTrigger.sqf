@@ -1,4 +1,4 @@
-#include "..\..\component.hpp"
+#include "..\component.hpp"
 
 params ["_trigger","_sectorName","_pointsForCapture","_pointsPerSecond","_lockAfterCapture","_captureSides","_owner","_notifyTakingControl","_onSectorCaptured","_sectorData","_captureMode"];
 

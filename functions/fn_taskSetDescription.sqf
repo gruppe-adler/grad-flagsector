@@ -2,7 +2,7 @@
  *
  */
 
-#include "..\..\component.hpp"
+#include "..\component.hpp"
 
 private ["_taskID","_info"];
 

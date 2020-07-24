@@ -1,3 +1,3 @@
 #define PREFIX GRAD
-#define COMPONENT flagsector
+#define COMPONENT sector
 #include "\x\cba\addons\main\script_macros_mission.hpp"

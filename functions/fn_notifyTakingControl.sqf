@@ -1,18 +1,18 @@
-#include "..\..\component.hpp"
+#include "..\component.hpp"
 
 params ["_trigger","_currentOwner","_previousCapturingSide","_capturingSide"];
 
 if (_capturingSide != _previousCapturingSide) then {
 
     if (_capturingSide == _currentOwner) then {
-        private _sectorName = _trigger getVariable "grad_flagsector_sectorName";
+        private _sectorName = _trigger getVariable "grad_sector_sectorName";
         if (_sectorName == "") then {_sectorName = "a sector"};
 
         ["grad_notification1",["SECTOR CAPTURING",format ["%1 regained control of %2.",[_currentOwner] call FUNC(getSideDisplayName),_sectorName]]] remoteExec ["bis_fnc_showNotification",0,false];
         deleteMarker (_trigger getVariable [QGVAR(captureMarker),""]);
 
     } else {
-        private _sectorName = _trigger getVariable "grad_flagsector_sectorName";
+        private _sectorName = _trigger getVariable "grad_sector_sectorName";
         if (_sectorName == "") then {_sectorName = "a sector"};
 
         private _capturingSideName = [_capturingSide] call FUNC(getSideDisplayName);
