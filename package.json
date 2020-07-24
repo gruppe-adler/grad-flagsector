@@ -7,7 +7,7 @@
     "contributors": [
       "nomisum <nomisum@gruppe-adler.de> (https://gruppe-adler.de)"
     ],
-    "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+    "publishConfig": { "registry": "https://npm.pkg.github.com/@gruppe-adler" },
     "dependencies": {
       "grad-points": "^0.0.1",
     };
