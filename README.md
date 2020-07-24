@@ -1,4 +1,4 @@
-# grad-flagsector
+# grad-sectors
 
 sector control implementation
 
