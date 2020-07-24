@@ -1,0 +1,14 @@
+{
+    "name": "grad-sectors",
+    "description": "Arma3 sector framework",
+    "version": "0.0.1",
+    "homepage": "https://github.com/gruppe-adler/grad-sectors",
+    "author": "McDiod <mcdiod@gruppe-adler.de> (https://gruppe-adler.de)",
+    "contributors": [
+      "nomisum <nomisum@gruppe-adler.de> (https://gruppe-adler.de)"
+    ],
+    "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+    "dependencies": {
+      "grad-points": "^0.0.1",
+    };
+}
