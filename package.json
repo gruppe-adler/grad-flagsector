@@ -1,5 +1,5 @@
 {
-    "name": "@gruppe-adler/grad-sectors",
+    "name": "grad-sectors",
     "description": "Arma3 sector framework",
     "version": "0.0.1",
     "homepage": "https://github.com/gruppe-adler/grad-sectors",
@@ -11,7 +11,6 @@
       "type": "git",
       "url": "https://github.com/gruppe-adler/grad-sectors"
     },
-    "publishConfig": { "registry": "https://npm.pkg.github.com/@gruppe-adler" },
     "dependencies": {
       "grad-points": "^0.0.1",
     }
