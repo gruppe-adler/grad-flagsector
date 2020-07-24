@@ -1,9 +1,9 @@
 #include "..\component.hpp"
 
 params ["_trigger"];
-INFO_1("PFH for %1 starting.",_trigger getVariable "grad_sector_sectorName");
+INFO_1("PFH for %1 starting.",_trigger getVariable "grad_sectors_sectorName");
 
-[_trigger] call grad_sector_fnc_updateMarker;
+[_trigger] call grad_sectors_fnc_updateMarker;
 
 private _previousCapturingSide = _trigger getVariable QGVAR(currentOwner);
 
@@ -18,10 +18,10 @@ private _previousCapturingSide = _trigger getVariable QGVAR(currentOwner);
         ERROR("A sector trigger is null. Exiting PFH.");
     };
 
-    _oldOwner = _trigger getVariable "grad_sector_currentOwner";
-    _pps = _trigger getVariable "grad_sector_pointsPerSecond";
+    _oldOwner = _trigger getVariable "grad_sectors_currentOwner";
+    _pps = _trigger getVariable "grad_sectors_pointsPerSecond";
     if (_pps > 0 && {_oldOwner != sideUnknown}) then {
-        _categoryName = format ["Held %1",_trigger getVariable "grad_sector_sectorName"];
+        _categoryName = format ["Held %1",_trigger getVariable "grad_sectors_sectorName"];
         [_oldOwner,_pps,_categoryName] call grad_victorypoints_fnc_addPoints;
     };
 
@@ -39,28 +39,28 @@ private _previousCapturingSide = _trigger getVariable QGVAR(currentOwner);
 
 
     if (_newOwner != _oldOwner) then {
-        _trigger setVariable ["grad_sector_previousOwner",_oldOwner];
-        _trigger setVariable ["grad_sector_currentOwner",_newOwner];
-        [_trigger] call grad_sector_fnc_updateMarker;
-        [_trigger] call grad_sector_fnc_notification;
+        _trigger setVariable ["grad_sectors_previousOwner",_oldOwner];
+        _trigger setVariable ["grad_sectors_currentOwner",_newOwner];
+        [_trigger] call grad_sectors_fnc_updateMarker;
+        [_trigger] call grad_sectors_fnc_notification;
 
-        _sectorName = _trigger getVariable "grad_sector_sectorName";
+        _sectorName = _trigger getVariable "grad_sectors_sectorName";
         if (_sectorName == "") then {_sectorName = "A sector"};
         _ownerName = [_newOwner] call FUNC(getSideDisplayName);
 
         ["grad_notification1",["SECTOR CAPTURED",format ["%1 was captured by %2.",_sectorName,_ownerName]]] remoteExec ["bis_fnc_showNotification",0,false];
         deleteMarker (_trigger getVariable [QGVAR(captureMarker),""]);
 
-        _points = _trigger getVariable "grad_sector_pointsForCapture";
+        _points = _trigger getVariable "grad_sectors_pointsForCapture";
         [_newOwner,_points,_sectorName] call grad_victorypoints_fnc_addPoints;
         [_oldOwner,-_points,_sectorName] call grad_victorypoints_fnc_addPoints;
 
         _onSectorCaptured = _trigger getVariable [QGVAR(onSectorCaptured),{}];
         [_trigger,_newOwner,_oldOwner] call _onSectorCaptured;
 
-        [_trigger] call grad_sector_fnc_updateTasks;
+        [_trigger] call grad_sectors_fnc_updateTasks;
 
-        if (_trigger getVariable "grad_sector_lockAfterCapture") exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
+        if (_trigger getVariable "grad_sectors_lockAfterCapture") exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
     };
 
 },1,[_this select 0,_previousCapturingSide]] call CBA_fnc_addPerFrameHandler;

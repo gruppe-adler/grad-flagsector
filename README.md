@@ -12,13 +12,14 @@ might be merged into template later on as it tries to be non-destructive
 
 # Configuration
 
-in the description.ext add the following to define flag textures for each side
+in the description.ext add the following to define custom flag textures for each side
+default is `"\A3\Data_F\Flags\Flag_red_CO.paa"`
 
 ```sqf
-class cfgSector {
+class cfgGradSectors {
     flagTextureBlufor = "";
-    flagTextureOpfor = "";
-    flagTextureIndependent = "";
+    flagTextureOpfor = "\A3\Data_F\Flags\Flag_red_CO.paa";
+    flagTextureIndependent = "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
     flagTextureCivilian = "";
 };
 ```
@@ -50,8 +51,8 @@ capture sides | array (optional) - sides that can conquer the sector (default: `
 owner | side (optional) - side that holds the sector at game start. (default: `sideUnknown`)
 notify | boolean (optional) - if a hint is displayed to all players when sector is taken
 onsectorcaptured | code (optional) - custom code executed when sector is taken. Params are `[_trigger,_newOwner,_oldOwner]`
-sectordata | string - unclear fnc
-capturemode | [number,number] - 0/1/2 == capture mode strength/time, 0-9999 captureTime
+sectordata | string - (optional) - can be used to write data into the sector, gets added as `setVariable "grad_sectors_sectordata"`
+capturemode | [number(,number - only for capture mode 1)] - 0/1/2 == capture mode,  strength/time, 0-9999 captureTime
 
 ### Example
 

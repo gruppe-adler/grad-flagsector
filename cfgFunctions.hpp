@@ -12,7 +12,7 @@ class grad_flagsector {
         class flagListener;
         class flagSetOwner;
 
-        class initSector;
+        class initSector { preInit = 1; };
         class initTrigger;
         class notifyTakingControl;
         class startPFH;

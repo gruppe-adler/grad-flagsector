@@ -25,4 +25,4 @@ _flag setFlagTexture _texture;
 _flag setVariable [QGVAR(sectorOwner), _side];
 _flag setFlagOwner objNull; // to return flag to flagpole
 
-[_flag] call grad_sector_fnc_flagListener; // restart loop
+[_flag] call grad_sectors_fnc_flagListener; // restart loop

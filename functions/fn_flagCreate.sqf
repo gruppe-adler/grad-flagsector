@@ -28,4 +28,4 @@ _flag setFlagSide _side;
 
 _sector setVariable [QGVAR(sectorflag), _flag];
 
-[_flag] call grad_sector_fnc_flagListener;
+[_flag] call grad_sectors_fnc_flagListener;
