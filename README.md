@@ -52,7 +52,16 @@ owner | side (optional) - side that holds the sector at game start. (default: `s
 notify | boolean (optional) - if a hint is displayed to all players when sector is taken
 onsectorcaptured | code (optional) - custom code executed when sector is taken. Params are `[_trigger,_newOwner,_oldOwner]`
 sectordata | string - (optional) - can be used to write data into the sector, gets added as `setVariable "grad_sectors_sectordata"`
-capturemode | [number(,number - only for capture mode 1)] - 0/1/2 == capture mode,  strength/time, 0-9999 captureTime
+capturemode | [number(,number - only for capture mode 1)] - 0/1/2 == capture mode,  strength/time/flag, 0-9999 captureTime
+
+### Capture Modes in detail
+#### 0 - Strength
+Side with more units inside the trigger captures instantly
+#### 1 - Time
+Side with more units inside trigger captures with a delay (second number in array for time in seconds)
+#### 2 - Flag
+Side that raises own flag captures instantly
+
 
 ### Example
 
