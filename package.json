@@ -10,5 +10,9 @@
     "repository": {
       "type": "git",
       "url": "https://github.com/gruppe-adler/grad-sectors"
+    },
+    "dependencies" :
+    {
+      "grad-points" : ">=0.0.1"
     }
 }
